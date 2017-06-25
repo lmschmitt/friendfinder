@@ -1,16 +1,15 @@
-// Dependencies
+// DEPENDENCIES
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-var app = module.exports = express();
-
-// Sets up the Express App
-// =============================================================
 var app = express();
+
+// SETS UP EXPRESS APP
+// =============================================================
 var PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
+// DATA PARSING
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
@@ -22,7 +21,7 @@ require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
 
 
-// Starts the server to begin listening
+// START THE SERVER TO BEGIN LISTENING
 // =============================================================
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);

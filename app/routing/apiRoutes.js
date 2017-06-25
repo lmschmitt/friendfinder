@@ -7,11 +7,12 @@ var friendList = require("../data/friends.js");
 // =============================================================
 module.exports = function(app){
     //GET ROUTE TO DIPLAY ALL POSSIBLE FRIENDS
-    app.get('api/friends', function(req, res){
-        res.json(friendList);
+    app.get('/api/friends', function(req,res){
+        console.log(friendList);
+        return res.json(friendList);
     });
     //POST ROUTE THAT COMPARES SCORES, PICKS CLOSEST SCORE, AND PUSHES NEW ENTRY INTO DATA
-    app.post('api/friends', function(req, res){
+    app.post('/api/friends', function(req, res){
         var newEntry = req.body.scores;
         var scoresArray = [];
         var bestMatch = 0;
